@@ -1,50 +1,45 @@
-var startTime	= Date.now();
-var container;
-var camera, scene, renderer, stats;
-var cube;
-
-init();
-animate();
-
-function init() {
-
-	camera = new THREE.Camera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
-	camera.position.y = 150;
-	camera.position.z = 350;
-	//camera.target.position.y = 150;
-
-	scene = new THREE.Scene();
-
-	cube = new THREE.Mesh( new THREE.CubeGeometry( 200, 200, 200 ), new THREE.MeshNormalMaterial() );
-	cube.position.y = 150;
-
-	scene.add( cube );
-
-	container = document.createElement( 'div' );
-	document.body.appendChild( container );
-
-	renderer = new THREE.WebGLRenderer();
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	container.appendChild( renderer.domElement );
-}
-
-function animate() {
-	render();
-	requestAnimationFrame( animate );
-}
-
-function render() {
-	cube.rotation.x += 0.02;
-	cube.rotation.y += 0.0225;
-	cube.rotation.z += 0.0175;
+var app = {
+    init: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
     
-	/*
-    var dtime	= Date.now() - startTime;
-	cube.scale.x	= 1.0 + 0.3*Math.sin(dtime/300);
-	cube.scale.y	= 1.0 + 0.3*Math.sin(dtime/300);
-	cube.scale.z	= 1.0 + 0.3*Math.sin(dtime/300);
-    */
+    onDeviceReady: function() {
+        ezar.initializeVideoOverlay(
+            function() {
+                ezar.getBackCamera().start();
+                app.renderCube();
+            },
+            function(err) {
+                alert('Error:' + err);
+            }
+        )
+    },
     
-	renderer.render( scene, camera );
+    renderCube: function() {
+        var scene = new THREE.Scene();
+        var cam = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight, 1, 10000);
+        var renderer = new THREE.WebGLRenderer( { alpha: true });
+        renderer.setClearColor(0xffffff,0);
+            
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+            
+        var geometry = new THREE.BoxGeometry(700, 700, 700, 10, 10, 10);
+        var material = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
+        var cube = new THREE.Mesh(geometry, material);
+            
+        scene.add(cube);
+        cam.position.z = 2000;        
+            
+        function render() {
+            requestAnimationFrame(render);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, cam);
+        };
+                
+        render();
+    }
 }
 
+app.init();
