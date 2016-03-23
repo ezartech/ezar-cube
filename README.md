@@ -5,7 +5,7 @@ This app renders a rotating 3D cube over a video preview. The cube is managed us
 *At this time the demo works best on iOS devices. Your mileage will vary on Android devices based on the 
 graphics capabilities of the device.* 
   
-![screenshot](screenshot.png)
+![screenshot](screenshot.png)  !![416x862](https://youtu.be/P4mNpWkUWX4)
 
 
 ##Getting Started
