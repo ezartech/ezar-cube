@@ -2,10 +2,10 @@
 This app renders a rotating 3D cube over a video preview. The cube is managed using  
 [three.js](http://threejs.org/). The ezAR VideoOverlay plugin provides the vide preview.  
   
-*At this time the demo works best on iOS. You mileage will vary on Android base on the  
+*At this time the demo works best on iOS. Your mileage will vary on Android devices based on the  
 graphics capabilities of your device.* 
   
-![screenshot](screenshot.jpg)
+![screenshot](screenshot.png)
 
 
 ##Getting Started
