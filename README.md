@@ -17,14 +17,14 @@ graphics capabilities of the device.*
     ```
     cordova platform add ios
     cordova platform add android
-    ```   
+    ```
 3. Build the project for all installed platforms
     ```
     cordova build --device
     ```
 4. Install on your device and run
   
-    *I use [GapDebug](https://www.genuitec.com/products/gapdebug/) for drag-n-drop  
+    *I use [GapDebug](https://www.genuitec.com/products/gapdebug/) for drag-n-drop 
     app installation and when needed debugging of my Cordova web UIs.*
   
 ##License
