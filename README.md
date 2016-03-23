@@ -9,20 +9,20 @@ graphics capabilities of the device.*
 
 
 ##Getting Started
-1. Install the ezAR Video Overlay plugin using the [Cordova SDK CLI](https://cordova.apache.org/)
+1. Install the ezAR Video Overlay plugin using the [Cordova SDK CLI](https://cordova.apache.org/)  
     ```
     cordova plugin add <path>/com.ezartech.ezar.videooverlay
     ```
-2. Install the platforms you plan to test on.
+2. Install the platforms you plan to test on.  
     ```
     cordova platform add ios
     cordova platform add android
     ```
-3. Build the project for all installed platforms
+3. Build the project for all installed platforms  
     ```
     cordova build --device
     ```
-4. Install on your device and run
+4. Install on your device and run  
   
     *I use [GapDebug](https://www.genuitec.com/products/gapdebug/) for drag-n-drop 
     app installation and when needed debugging of my Cordova web UIs.*
